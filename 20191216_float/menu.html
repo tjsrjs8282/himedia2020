@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+	<meta charset="UTF-8">
+	<title>float menu</title>
+	<style>
+		/* reset*/
+		*{margin: 0;padding: 0;}
+		li{list-style: none}
+		a:visited,a:link{
+			color:#000;text-decoration: none
+		}
+		
+		/*header*/
+		div#header{
+			width: 1200px;
+/*			background-color:skyblue;*/
+			margin:0 auto;
+		}
+/*		div#header>h1{text-align: center;background-color: #f00;}*/
+		
+		div#header>h1{
+			width: 100px;
+			background-color: #f00;
+			margin: 0 auto;text-align: center;
+		}
+		div.nav>ul:after{
+			content:"";clear: both;display: block;
+		}
+		div.nav>ul>li{
+			float: left;width: 240px;text-align: center;height:40px;line-height:40px;
+			background-color:#00f;color:#fff
+		}
+		div.nav>ul>li:hover{background-color:skyblue;}
+		
+		div.visual{
+			height: 400px;
+			background-color:pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>logo</h1>
+		<div class="nav">
+			<ul>
+				<li class="han">menu1</li>
+				<li class="han">menu2</li>
+				<li class="han">menu3</li>
+				<li>menu4</li>
+				<li>menu5</li>
+			</ul>
+			
+		</div>
+	</div>
+	<div class="visual"></div>
+	
+	
+	<a href="http://www.daum.net">다음</a>
+	<a href="http://www.fb.com">fb</a>
+</body>
+</html>

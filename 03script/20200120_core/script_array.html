@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>array</title>
+	<script>
+		var city = ["Seoul","Busan","Inchon","Mokpo","Seojong"];
+		var cityNum = city.length;
+		// alert(cityNum);
+		// document.write(cityNum);
+		// console.log(cityNum);
+		for(var i=0;i<cityNum;i++){
+			document.write(i+"번째 자료는 " + city[i] + " 입니다.<br>");	
+		}
+
+		// document.write(city[0]+"<br>");
+		// document.write(city[1]+"<br>");
+		// document.write(city[2]);
+
+	</script>
+	<script>
+		var city1 = ["서울","경기","부산","인천"];
+		console.log("city의 개수 : " + city1.length);
+		function printArr(){
+			for(var i=0;i<city1.length;i++){
+				document.write("배열데이터 [" + i + "] = " + city1[i] + "<br>");
+			}
+		}
+		printArr();
+	</script>
+
+	<script>
+		var com = [95,75,0,65,0,60,99,48,76,55];
+		console.log("com count : " + com.length);
+		
+		function printAvg(){
+			var sum = 0;
+			var n = com.length;
+			for(var i=0;i<n;i++){
+				sum = sum + com[i]; // sum += com[i];
+			}
+			return (sum/n);
+		}
+
+	</script>
+</head>
+<body>
+	<div>
+		<script>
+			document.write(city1[0]);
+		</script>
+	</div>
+	<div>
+		<script>
+			document.write(city1[2]);
+		</script>
+	</div>
+	<div> 
+		수학의 평균 : 
+		<script>
+			var getAvg = printAvg();
+			document.write(getAvg);
+		</script>
+		점
+	</div>
+
+	<script>
+		var arrdata = [];
+		function insertArr(){
+			for(var i=0;i<100;i++){
+				arrdata[i] = i+1;
+			}
+
+			selectArr();
+		}
+
+		function selectArr(){
+			var num = arrdata.length;
+			for(var k=0;k<num;k++){
+				document.write(arrdata[k]+",");
+			}
+
+			addArr();
+		}
+
+		function addArr(){
+			var sum = 0;
+			for(var i=0;i<arrdata.length;i++){
+				sum = sum + arrdata[i];
+			}
+
+			document.write("<p> 배열데이터의 합 : "+sum+"</p>")
+			document.write("<a href='script_array.html'>돌아가기</a>")
+		}
+
+	</script>
+	<button type="button" onclick="insertArr()">배열 생성/조회/연산</button>
+</body>
+</html>

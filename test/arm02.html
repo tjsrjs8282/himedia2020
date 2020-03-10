@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>working</title>
+	<style>
+		body{background-color:skyblue;}
+		.woman{position: relative;_background-color: #cdcdcd;width:114px;height:234px;left:200px;
+			
+		}
+		@keyframes bounce{
+			50%{transform: translateX(10px) translateY(10px);}
+
+		}
+		.woman>div{position: absolute;}
+		.woman div.body{
+			z-index:2;
+			
+		}
+		
+		.woman div.arm1{
+			top:100px;left:-20px;
+			transform-origin: 85px 14px;
+			_transform: rotate(20deg);
+			
+			z-index:3;
+			
+		}
+		@keyframes armRight{
+			0%{transform: rotate(20deg);}
+			100%{transform: rotate(-40deg);}
+
+		}
+		.woman div.arm2{
+			top:100px;left:-20px;
+			transform-origin: 85px 14px;
+			_transform: rotate(20deg);
+			
+			z-index: 1;
+			
+		}
+		@keyframes armLeft{
+			0%{transform: rotate(-20deg);}
+			100%{transform: rotate(20deg);}
+		}
+
+		.woman div.foot1{
+			top:210px;left:-5px;
+			transform-origin: 23px 34px;
+			transform: rotate(-20deg);
+			z-index: 1;
+			
+			
+		}
+		.woman div.foot2{
+			top:210px;left:-5px;
+			transform-origin: 23px 34px;
+			transform: rotate(40deg);
+			z-index: 1;
+			
+			
+		}
+
+		@keyframes foot2{
+			0%{transform: rotate(-20deg);}
+			100%{transform: rotate(40deg);}
+		}
+		@keyframes foot1{
+			0%{transform: rotate(40deg);}
+			100%{transform: rotate(-20deg);}
+		}
+
+
+		.woman.animate{animation:bounce 1s infinite alternate;}
+		.woman.animate .arm1{animation:armRight 1s linear infinite alternate;}
+		.woman.animate .arm2{animation:armLeft 1s linear infinite alternate;}
+		.woman.animate .foot1{animation:foot1 1s linear infinite alternate;}
+		.woman.animate .foot2{animation:foot2 1s linear infinite alternate;}
+	</style>
+</head>
+<body>
+	<div class="woman">
+		<div class="body"><img src="../images/body01.png" alt=""></div>
+		<div class="arm1"><img src="../images/arm01.png" alt=""></div>
+		<div class="arm2"><img src="../images/arm01.png" alt=""></div>
+		<div class="foot1"><img src="../images/foot01.png" alt=""></div>
+		<div class="foot2"><img src="../images/foot02.png" alt=""></div>
+	</div>
+</body>
+</html>

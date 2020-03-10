@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>menu bar</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<style>
+		.nav{width: 1000px;margin: auto;}
+		ul.menu li{float: left;width:20%;height: 40px;line-height:40px;text-align: center;cursor:pointer;
+			position: relative;
+		}
+		ul.menu li.active:before{
+			content:"";display: block;width: 8px;height: 8px;
+			border-radius:50%;background-color: #f00;
+			position: absolute;left: 50%;transform: translateX(-50%);
+		}
+		ul.menu li.active{color:#f00;}
+
+
+		ul.menu li:hover:before{
+			content:"";display: block;width: 8px;height: 8px;
+			border-radius:50%;background-color: #f00;
+			position: absolute;left: 50%;transform: translateX(-50%);
+		}
+		ul.menu li:hover{color:#f00;}
+		.bar{
+			width: 200px;height: 5px;background-color: #f00;
+			position: relative;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="nav">
+		<ul class="menu clearfix">
+			<li>menu1</li>
+			<li>menu2</li>
+			<li>menu3</li>
+			<li>menu4</li>
+			<li>menu5</li>
+		</ul>
+		<div class="bar"></div>
+	</div>
+
+	<script>
+		
+			function nowMenu(menu){
+				$(".menu>li").eq(menu).addClass("active");
+				$(".bar").animate({left:menu*200},100);
+
+				$(".menu>li").mouseenter(function(){
+					var menuLi = $(this).index();
+					$(".bar").stop().animate({left:menuLi*200},100);
+				});
+				$(".nav").mouseleave(function(){
+					$(".bar").animate({left:menu*200},100);
+				});
+
+			}
+			nowMenu(4);
+		
+
+	</script>
+</body>
+</html>

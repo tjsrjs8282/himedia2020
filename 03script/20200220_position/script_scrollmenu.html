@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>scrollmenu</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<script src="../../js/jquery.mousewheel.min.js"></script>
+	<style>
+		nav.menu{background-color: #cdcdcd;width:100%;transition:0.3s}
+		nav.menu.fixed{position: fixed;top:0;background-color: #000;}
+		nav.menu.fixed a{color:white;}
+		nav.menu ul li{float: left;width: 20%;}
+		nav.menu ul li a{
+			display: block;text-align: center;line-height:40px;
+		}
+		.contents{height: 3000px}
+	</style>
+	<script>
+		$(function(){
+			// $(window).scroll(function(){
+			// 	var winTop = $(window).scrollTop();
+
+			// 	if(winTop>100){
+			// 		$(".menu").addClass("fixed");
+			// 	}else{
+			// 		$(".menu").removeClass("fixed")
+			// 	}
+			// });
+
+			$(document).mousewheel(function(e,delta){
+				console.log(delta);
+				$(window).scroll(function(){
+					var winTop = $(this).scrollTop();
+
+					if(winTop>100){
+						if(delta>0){
+							$(".menu").addClass("fixed");
+						}else{
+							$(".menu").removeClass("fixed");
+						} //delta
+					}else{
+						$(".menu").removeClass("fixed");
+					} //winTop
+
+				}); //scroll end
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<nav class="menu">
+			<ul class="clearfix">
+				<li><a href="#">menu1</a></li>
+				<li><a href="#">menu2</a></li>
+				<li><a href="#">menu3</a></li>
+				<li><a href="#">menu4</a></li>
+				<li><a href="#">menu5</a></li>
+			</ul>
+		</nav>
+		<div class="contents">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quasi voluptatibus commodi non, cupiditate consequuntur assumenda hic reprehenderit in corporis et. Placeat voluptas voluptate explicabo debitis officiis itaque amet! Nemo facere officiis minima quasi dolores minus dolorum vero dolorem repellendus quisquam? Rem esse, id eius, nisi in enim. Ipsum in perspiciatis sequi iure id, quae dicta eum vel qui natus sit quas suscipit aperiam, deserunt voluptatum, ipsam, officia modi illo maiores rem ducimus. Id molestiae, totam perspiciatis aliquam eius cumque quibusdam adipisci enim saepe rerum assumenda, temporibus vero inventore fugiat. Maiores nam illum at minus consequatur odit deleniti enim dolore!</div>
+	</div>
+</body>
+</html>

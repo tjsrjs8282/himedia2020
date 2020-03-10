@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<script>
+		function change(){
+			var spanArray = document.getElementsByTagName("span");
+			for(var i=0;i<spanArray.length;i++){
+				console.log(spanArray[i]);
+				var span = spanArray[i];
+				span.style.color = "red";
+				//document.getElementsByTagName("span")[i].style.color = "red";
+				span.style.fontSize = "20px";
+				span.style.backgroundColor = "skyblue";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h3>Lorem ipsum dolor sit amet.</h3>
+	<button onclick="change()">누르세요</button>
+	<hr>
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta,<span>사과</span> placeat veritatis dolorem. Consectetur velit illo adipisci architecto ab delectus nesciunt iusto nihil voluptatibus incidunt ullam dolor soluta cumque mollitia alias neque, impedit, eum similique. <span>바나나</span>Iure minima praesentium delectus animi recusandae, rem expedita voluptates nesciunt laudantium, labore consectetur minus dolores molestiae blanditiis provident cumque, quaerat earum sit at <span>파인애플</span>omnis itaque numquam culpa alias voluptatibus exercitationem. Libero, esse eum aspernatur ducimus ipsum, ipsa, illo ea vitae <span>귤</span>provident officiis recusandae nihil delectus deleniti obcaecati suscipit deserunt molestias culpa commodi, debitis alias nisi? Explicabo, dignissimos consequatur labore perferendis excepturi libero eum architecto rem amet.
+
+</body>
+</html>

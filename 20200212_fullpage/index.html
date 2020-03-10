@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>fullpage</title>
+	<link rel="stylesheet" href="css/fullpage.css">
+	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script src="js/jquery.bxslider.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#fullpage").fullpage({
+				anchors:["1st","2st","3st","4st"],
+				menu:"#topMenu",
+				navigation:true,
+				slideNavigation:true,
+				afterLoad:function(anchorslink,index){
+					console.log(anchorslink+","+index);
+					
+					if(index == 2){
+						$("#onView").addClass("move");
+					}else{
+						$("#onView").removeClass("move");
+					}
+				}
+			});
+
+			$(window).resize(function(){
+				sHeight();
+			});
+
+			function sHeight(){
+				var sliderHeight = $(window).height();
+				$(".slider1").height(sliderHeight);
+			}
+			
+			sHeight();
+			
+
+
+			$(".sliderWrap").bxSlider({pager:false});
+		});
+	</script>
+	<style>
+		nav#navTop{
+			position: fixed;z-index:1;width:100%;
+			background-color: #cdcdcd;padding-left:10px;
+		}
+		nav#navTop li{float: left;}
+		nav#navTop li a{display: block;line-height:50px;text-align: center;padding: 0 10px;}
+		#page1{background-image: url(images/bg1.jpg);}
+
+		#page1 .box1{width: 300px;height: 300px;background-color: #f00;position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);}
+		#page2{background-image: url(images/bg2.jpg);}
+		#page3{background-image: url(images/bg3.jpg);}
+		#page4{background-image: url(images/bg4.jpg);}
+		.page{
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size:cover;
+			text-align: center;
+		}
+		.scroll{
+			position: absolute;bottom:20px;left:50%;
+			transform:translateX(-50%);
+			animation-name: xScroll;
+			animation-duration:0.8s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+		}
+		@keyframes xScroll{
+			from{bottom: 20px;}
+			to{bottom: 40px;}
+		}
+		#navTop .active{background-color:skyblue;}
+
+		.main{
+			width: 400px;position: absolute;left:50%;
+			color:white;transform:translate(-50%,-50%);text-align: center;
+		}
+		.main h3{font-size:3em;}
+		.main p{font-size:1.5em;margin-bottom:20px;}
+		.main a{
+			display: block;text-align: center;
+			width: 150px;border: 1px solid #fff;line-height:35px;
+			color:white;border-radius:7px;margin: auto;transition:0.3s
+		}
+		.main a:hover{background-color: #fff;color:#000;}
+		#onView{top:20%;transition:0.3s;opacity:0;}
+		#onView.move{top:50%;opacity:1;}
+
+#myVideo {
+    position: absolute;bottom: 0;top: 0;right: 0;
+   	width: 100%;height: 100%;background-size: 100% 100%;
+    background-color: black;background-position: center center;
+    object-fit: cover;z-index: 3;
+}
+
+.bx-wrapper {
+    
+    margin-bottom: 0px;
+    }
+
+	</style>
+</head>
+<body>
+	<nav id="navTop">
+		<ul id="topMenu" class="clearfix">
+			<li data-menuanchor="1st"><a href="#1st">menu1</a></li>
+			<li data-menuanchor="2st"><a href="#2st">menu2</a></li>
+			<li data-menuanchor="3st"><a href="#3st">menu3</a></li>
+			<li data-menuanchor="4st"><a href="#4st">menu4</a></li>
+		</ul>
+	</nav>
+	<div id="fullpage">
+		<div class="section page" id="page1" data-anchor="1st">
+			<video id="myVideo" autoplay muted data-autoplay>
+				<source src="../images/video.mp4">
+			</video>
+
+			<div class="scroll">
+				<a href="#2st"><img src="images/btn_scroll.png" alt=""></a>
+			</div>0
+
+			
+		</div>
+		<div class="section page" id="page2" data-anchor="2st">
+			<div class="main" id="onView">
+				<h3>Lorem ipsum.</h3>
+				<p>Lorem ipsum dolor sit.</p>
+				<a href="#">more</a>
+			</div>
+			<div class="scroll">
+				<a href="#3st"><img src="images/btn_scroll.png" alt=""></a>
+			</div>
+		</div>
+		<div class="section page" id="page3" data-anchor="3st">
+			<div class="main" id="onView1">
+				<h3>Lorem ipsum.</h3>
+				<p>Lorem ipsum dolor sit.</p>
+				<a href="#">more</a>
+			</div>
+			<div class="scroll">
+				<a href="#4st"><img src="images/btn_scroll.png" alt=""></a>
+			</div>
+		</div>
+		<div class="section page" id="page4" data-anchor="4st">
+			<!-- <style>
+				.slide{position: relative;}
+				.slide .sView1,
+				.slide .sView2,
+				.slide .sView3,
+				.slide .sView4{position: absolute;width: 500px;height: 500px;background-color: skyblue;left:50%;right:50%;transform:translate(-50%,-50%);}
+			</style>
+			<div class="slide">
+				<div class="sView1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit temporibus, tenetur. Nisi deleniti inventore totam consequuntur libero vel, voluptatum doloremque voluptate quod illo sequi vitae magnam dolorem adipisci beatae quos.</div>
+			</div>
+			<div class="slide">
+				<div class="sView2">Quam quaerat ad temporibus eos maiores voluptatem rem, totam perferendis et minus! Nemo laboriosam quaerat id voluptatibus sit similique corrupti obcaecati quia, labore ipsam ut. Voluptatem voluptatum, dolor culpa veritatis!</div>
+			</div>
+			<div class="slide">
+				<div class="sView3">Nostrum corrupti quos, ratione repudiandae eius officia sapiente perferendis doloremque, repellat distinctio ad. Fugit exercitationem reiciendis nulla, rem! Laboriosam perspiciatis quae reiciendis soluta repellendus nemo ratione cum reprehenderit sed nihil?</div>
+			</div>
+			<div class="slide">
+				<div class="sView4">Tempora molestias harum ipsam numquam nesciunt laboriosam eius cupiditate. Dolore reprehenderit velit obcaecati eligendi maxime quod exercitationem quae, voluptatum! Ullam doloribus praesentium voluptatibus quidem eligendi nemo reiciendis veritatis ea minus.</div>
+			</div> -->
+
+			<!-- div.sliderWrap>div.slider$*5>lorem50 -->
+			<div class="sliderWrap">
+				<div class="slider1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem laborum cumque fugit quae consectetur voluptates sunt laudantium, excepturi tempore, eum consequuntur ullam error velit harum ex, ad corporis veritatis. Corrupti, ad labore eaque earum, saepe consectetur, facilis modi impedit fugit molestias illum fugiat consequuntur accusamus nulla dolorum qui repellendus nemo.</div>
+				<div class="slider1">At quos, consequuntur eligendi recusandae adipisci, unde totam a minus impedit rerum amet voluptate maiores! Libero dolores molestiae tenetur et corporis, vel quibusdam, consectetur reprehenderit accusantium sed assumenda porro, officia deserunt nostrum est cumque debitis natus voluptatibus iste aut autem aliquam! Provident nostrum corporis incidunt ipsam id, rem placeat deleniti.</div>
+				<div class="slider1">Amet eligendi sunt nulla illo fuga ad nemo, dolor nesciunt. Tempora commodi iure, aperiam enim dolor, molestiae perferendis temporibus quas amet corporis aspernatur eos fugit ipsam deleniti soluta provident! Vel nihil tenetur, repudiandae dicta, debitis nulla quo quos iusto animi labore inventore mollitia fugiat, voluptatum sapiente dolores expedita alias earum.</div>
+				<div class="slider1">Itaque, consequatur tenetur rem corporis excepturi dolor. Eos dolore beatae perferendis mollitia, labore nemo dignissimos? Facere nulla vero voluptatum libero magni esse accusantium iste placeat. Facere et, debitis laudantium consequuntur accusantium. Saepe dolorum, officia temporibus ab minima illum architecto natus quibusdam! Voluptatum maiores, ab itaque, delectus a eligendi! Assumenda, ad.</div>
+				<div class="slider1">Assumenda commodi iure consequatur debitis, suscipit dolor autem error rem ipsum voluptate reprehenderit repudiandae dolore vel, animi, ratione quisquam, maiores veniam inventore magnam ad expedita deleniti tempore pariatur praesentium. Corrupti similique praesentium doloribus tenetur voluptatem, minima dolor dolores soluta temporibus tempora, deserunt, consequatur reiciendis est sed ea! Harum quo, inventore.</div>
+			</div>
+		</div>
+		<div class="section page fp-auto-height" id="page5" data-anchor="5st">
+			<div class="footer" style="height:300px;background:skyblue"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>tabs</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<style>
+		.contentWrap{width: 1000px;margin: auto;}
+		.contentWrap li{
+			float: left;width: 20%;text-align: center;line-height: 40px;
+			border: 1px solid #000;
+		}
+		.contentWrap li:hover{background-color:skyblue;}
+		.contentWrap li.active{background-color:orange;color:white;}
+		.contentWrap .contentTxt{border: 1px solid #000;}
+		.contentWrap .contentTxt div{padding:30px;display: none;}
+		.contentWrap .contentTxt div:first-child{display: block;}
+	</style>
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".contentWrap > ul > li").click(function(){
+				var liNum = $(this).index();
+				console.log(liNum);
+				$(".contentWrap>ul>li").removeClass();
+				 $(this).addClass("active");
+				//$(".contentWrap>ul>li").eq(liNum).addClass("active");
+				$(".contentTxt>div").hide();
+				// $(".contentTxt>div").eq(liNum).show();
+				$(".contentTxt>div").eq(liNum).fadeIn();
+
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="contentWrap">
+		<ul class="clearfix">
+			<li class="active">menu1</li>
+			<li>menu2</li>
+			<li>menu3</li>
+			<li>menu4</li>
+			<li>menu5</li>
+		</ul>
+		<div class="contentTxt">
+			<div>1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt fuga, autem ab aliquam repellat. Ducimus cupiditate maxime a, eum distinctio porro nam cumque? Tenetur molestiae, tempora obcaecati sunt quos culpa.</div>
+			<div>2. Ex, obcaecati neque quibusdam blanditiis commodi at cumque explicabo sapiente illum ratione, eos accusamus, beatae facere nam. Nisi ipsa cumque corrupti voluptates maxime obcaecati tempore, illo distinctio temporibus molestias, maiores.</div>
+			<div>3. Dicta explicabo laboriosam exercitationem vel sed quasi, doloremque veniam optio, eligendi hic vitae, commodi repellendus, quis inventore mollitia laborum. A aliquam necessitatibus dicta officiis culpa similique enim neque velit non?</div>
+			<div>4. Ullam nisi ratione ab at, ipsam libero voluptatum distinctio aliquam, velit cumque, amet eum. Vitae ad sit mollitia, delectus quasi magnam aperiam tenetur iusto fugiat, soluta, perferendis voluptatem iste? Ipsa.</div>
+			<div>5. Cupiditate at natus aspernatur blanditiis nisi, hic libero quo deleniti est officiis soluta maxime consectetur aperiam aut esse sint facilis numquam, mollitia iusto atque perferendis perspiciatis sunt culpa eius. Id.</div>
+		</div>
+	</div>
+</body>
+</html>

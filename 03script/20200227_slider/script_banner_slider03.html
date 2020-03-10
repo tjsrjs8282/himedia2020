@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>slider</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<style>
+
+		#wrapper{width: 500px;height: 238px;margin:20px auto;background-color:skyblue;}
+		#wrapper img{width: 500px;display: block;}
+		#wrapper ul.slider{width: 500px;height: 208.33px;position: relative;overflow: hidden;}
+		#wrapper ul.slider li{position: absolute;left:100%;}
+		#wrapper ul.slider li:nth-child(1){left:0;}
+	</style>
+	<script>
+		$(function(){
+			var current = 0;
+			var banner = $("ul.slider li");
+			var bCount = banner.length;
+			var i;
+			var overBtn = false;
+
+			function nextSlider(){
+				if(overBtn == false){ //버트연속클릭
+					overBtn = true;
+					i = current + 1;
+					if(i==bCount){
+						i=0;
+						current=bCount-1;
+					}
+
+					var currentEl = banner.eq(current);
+					var nextEl = banner.eq(i);
+					
+					currentEl.css({left:0}).stop().animate({left:"-100%"},1000);
+					nextEl.css({left:"100%"}).stop().animate({left:0},{duration:1000,complete:function(){overBtn=false;}});
+
+					current = i;
+				}
+			}
+			function prevSlider(){
+				if(overBtn==false){
+					overBtn=true;
+					i = current - 1;
+					if(i==-1){
+						i=bCount-1;
+						current=0;
+					}
+					var currentEl = banner.eq(current);
+					var nextEl = banner.eq(i);
+
+					currentEl.css({left:0}).stop().animate({left:"100%"},1000);
+					nextEl.css({left:"-100%"}).stop().animate({left:0},{duration:1000,complete:function(){overBtn=false;}});
+
+					current = i;
+				}
+			}
+
+			$(".bt_next").click(function(){
+				nextSlider();
+				console.log(current);
+			});
+			$(".bt_prev").click(function(){
+				prevSlider();
+				console.log(current);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<ul class="slider">
+			<li><img src="../../images/pc01.jpg" alt=""></li>
+			<li><img src="../../images/pc02.jpg" alt=""></li>
+			<li><img src="../../images/pc03.jpg" alt=""></li>
+		</ul>
+		<div class="btn">
+			<span class="bt_prev">이전</span>
+			<span class="bt_next">다음</span>
+		</div>
+
+	</div>
+</body>
+</html>

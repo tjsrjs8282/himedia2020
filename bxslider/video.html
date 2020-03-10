@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>bxslider</title>
+	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="../css/reset.css">
+
+	<style>
+		/*ul.slider li img{width: 100%;	}*/
+		.sliderWrap{width:900px;margin: 0 auto;position: relative;}
+		.bx-wrapper {
+		    -moz-box-shadow: 0 none;
+		    -webkit-box-shadow: 0 none;
+		    box-shadow: 0 none;
+		    border: 0 none;
+		    margin-bottom: 0;
+		}
+		.bx-wrapper .bx-pager{
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+		}
+		.nextBtn,.prevBtn{
+			position: absolute;top:50%;margin-top:-50px;cursor:pointer;
+		}
+		.nextBtn{right:0;}
+		#my-vid{width: 100%;}
+	</style>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.bxslider.js"></script>
+	<script>
+
+		$(document).ready(function(){
+			var mySlide = $(".slider").bxSlider({
+				auto:false,
+				controls:false,
+				pager:false,
+				onSlideAfter: function($slideElement, oldIndex, newIndex){  
+			       //console.log("이전"+oldIndex);
+			       //console.log("새것"+newIndex);
+			       //console.log("지금"+mySlide.getCurrentSlide());
+
+			       var now = mySlide.getCurrentSlide();
+			       
+			       if(now == 0){
+			       	document.getElementById("my-vid").play();
+			       }else{
+		       		document.getElementById("my-vid").pause();
+		       	   }
+
+			    }
+			});
+
+
+			var now = mySlide.getCurrentSlide();
+		   
+		       if(now == 0){
+		       	document.getElementById("my-vid").play();
+		       }
+			//console.log(mySlide.getCurrentSlide());
+
+			$(".nextBtn").click(function(){
+				mySlide.goToNextSlide();
+			});
+
+			$(".prevBtn").click(function(){
+				mySlide.goToPrevSlide();
+			});
+
+
+
+		});
+
+	</script>
+</head>
+<body>
+	<!-- ul.slider>li*3>img[src="images/pc0$.jpg"] -->
+	<div class="sliderWrap">
+		<ul class="slider">
+			<li>
+				<video class="cover" id="my-vid" autolay="" muted="" loop="" playsinline="" data-object-fit="cover">
+                      <source src="https://cdndept.galleria.co.kr/upload/dept/rightgalleria/media-file.mp4?autoplay=1" type="video/mp4">
+                      <p>이 브라우저는 비디오 태그를 지원하지 않습니다.</p>  
+                  </video>
+			</li>
+			<li><img src="images/pc02.jpg" alt="img02"></li>
+			<li><img src="images/pc03.jpg" alt="img03"></li>
+		</ul>
+		<div class="nextBtn">
+			<img src="images/btn_right.png" alt="다음">
+		</div>
+		<div class="prevBtn">
+			<img src="images/btn_left.png" alt="이전">
+		</div>
+	</div>
+
+	<style>
+		ul.menu{}
+		ul.menu>li{
+			width:100px;background-color:skyblue;position: relative;
+			padding-left:0;transition:0.3s;
+		}
+		ul.menu>li>a{display: block;}
+		ul.menu>li>a:before{content:"";
+			position: absolute;width:0;height:1px;
+			left:0;top:50%;background-color:red;
+			transition:0.3s;
+		}
+		ul.menu>li:hover a:before{width:13px;}
+		ul.menu>li:hover{padding-left:13px;}
+	</style>
+	<ul class="menu">
+		<li><a href="#" class="item-a">자연</a></li>
+		<li><a href="#" class="item-a">자연</a></li>
+		<li><a href="#" class="item-a">자연</a></li>
+	</ul>
+	
+	<style>
+		body{background-color:#eee;}
+		.btn{
+			display:inline-block;
+			position: relative;
+			padding:13px 60px;
+			border: 2px solid #333;
+			overflow: hidden;
+			color:#333;
+			    text-align: center;
+    vertical-align: middle;
+			transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1),background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+		.btn:hover{color:#fff;}
+		.btn:after{
+			content:"";position: absolute;
+			left: 0;top: 0;right: 0;bottom: 0;background-color: #191919;
+			transform:scale(0,1);
+			    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),-webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			transform-origin: right center
+		}
+		.btn:hover:after{transform:scale(1,1);transform-origin:left center;color:#fff;}
+		.btn span{position: relative;z-index:1;display:inline-block;}
+	</style>
+
+	<a href="#" class="btn"><span>바로가기</span></a>
+	
+</body>
+</html>
