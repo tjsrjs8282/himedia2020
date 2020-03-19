@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>svg</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		body{background-color:skyblue;}
+		#Layer_1{
+			width: 100%;
+			height: 800px;
+		}
+		.svgWrapper .st0{
+			fill:none;stroke:#000000;stroke-miterlimit:10;
+			stroke-dasharray:600;
+			stroke-dashoffset:600;
+			width: 100%;
+		}
+		.svgWrapper.action .st0{
+			animation:lineAni 1s forwards linear;
+		}
+		@keyframes lineAni{
+			to{stroke-dashoffset:0;}
+		}
+		
+		#Layer_1 path:nth-child(2){animation-delay: 0.2s;}
+		#Layer_1 path:nth-child(3){animation-delay: 0.4s;}
+		#Layer_1 path:nth-child(4){animation-delay: 0.6s;}
+		#Layer_1 path:nth-child(5){animation-delay: 0.8s;}
+		#Layer_1 path:nth-child(6){animation-delay: 1s;}
+		#Layer_1 path:nth-child(7){animation-delay: 1.2s;}
+		#Layer_1 path:nth-child(8){animation-delay: 1.4s;}
+		#Layer_1 path:nth-child(9){animation-delay: 1.6s;}
+		#Layer_1 path:nth-child(10){animation-delay: 1.8s;}
+		#Layer_1 path:nth-child(11){animation-delay: 2s;}
+	</style>
+
+
+	<script>
+		$(window).scroll(function(){
+			var scTop = $("html").scrollTop();
+			if(scTop > 500){
+				$(".svgWrapper").addClass("action");
+			}else{
+				$(".svgWrapper").removeClass("action");
+			}
+		});
+
+	</script>
+</head>
+<body>
+	<div style="height: 1000px;"></div>
+	<div class="svgWrapper">
+		<svg id="Layer_1" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 500 500">
+			<path class="st0" d="M127,0c-13.979,83.844-44.682,192.278,20.571,262.488c27.144,29.206,62.185,49.637,101.249,57.031
+			c33.846,6.406,73.594,11.535,97.18,40.481c11.61,14.247,20.266,29.724,24.362,47.677C374.04,423.79,376.254,437.749,391,448"/>
+			<path class="st0" fill="none" stroke="#000000" stroke-miterlimit="10" d="M184.67,27.335c0,0-169.965,21.3-84.453,122.665
+			 c85.512,101.364,119.789,76.278,34.275,131.045"/>
+			 <path class="st0" fill="none" stroke="#000000" stroke-miterlimit="10" d="M162.408,23.145c0,0-169.965,21.3-84.453,122.665
+	c85.512,101.364,119.789,76.278,34.275,131.045"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.9785" stroke-miterlimit="10" d="M152.454,23.145
+		c0,0-137.261,21.04-68.203,121.164c69.059,100.123,96.741,75.344,27.681,129.441"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.9571" stroke-miterlimit="10" d="M142.501,23.145
+		c0,0-104.558,20.779-51.953,119.662c52.604,98.883,73.691,74.41,21.085,127.838"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.9356" stroke-miterlimit="10" d="M132.547,23.145
+		c0,0-71.854,20.519-35.702,118.161c36.151,97.642,50.642,73.477,14.49,126.233"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.9142" stroke-miterlimit="10" d="M122.594,23.145
+		c0,0-39.15,20.258-19.453,116.66c19.697,96.401,27.593,72.543,7.896,124.629"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.8927" stroke-miterlimit="10" d="M112.641,23.145
+		c0,0-6.447,19.997-3.203,115.158s4.544,71.61,1.3,123.026"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.8713" stroke-miterlimit="10" d="M102.687,23.145
+		c0,0,26.257,19.736,13.047,113.657c-13.209,93.92-18.505,70.677-5.294,121.422"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.8498" stroke-miterlimit="10" d="M92.733,23.145
+		c0,0,58.96,19.476,29.297,112.156c-29.663,92.679-41.554,69.743-11.891,119.818"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.8284" stroke-miterlimit="10" d="M82.779,23.145
+		c0,0,91.664,19.215,45.547,110.654c-46.116,91.439-64.603,68.81-18.484,118.215"/>
+	<path class="st0" fill="none" stroke="#000000" stroke-width="0.8069" stroke-miterlimit="10" d="M72.826,23.145
+		c0,0,124.367,18.954,61.797,109.153c-62.57,90.198-87.652,67.876-25.08,116.61"/>
+		</svg>
+	</div>
+</body>
+</html>
