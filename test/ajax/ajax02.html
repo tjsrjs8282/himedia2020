@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var han = [
+				["채식주의자","01.jpg","12,000"],
+				["삶의 지혜","02.jpg","13,000"],
+				["이게 정말 마음일까?","03.jpg","20,000"]
+			];
+
+
+			var dLength = han.length;
+			var text="";
+
+			for(var i=0;i<dLength;i++){
+				 text +="<li>"
+				 text +="<img src=\"images/"+han[i][1]+"\">";
+				 text += han[i][0];
+				 text +="<span>"+han[i][2]+"원</span>";
+				 text +="</li>";
+
+			}
+			console.log(text);
+			$(".han").append(text);
+		});
+		
+	</script>
+	<style>
+		li{list-style:none}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="han"></ul>
+	</div>
+</body>
+</html>

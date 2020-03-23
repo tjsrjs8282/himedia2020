@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		.box:before{
+			content:attr(data-item);
+			display:block;
+			text-align: center;
+			background-color:#26bfb5;
+			border-radius:50%;
+			width:48px;
+			height: 48px;
+			line-height: 48px;
+			color:white;
+			font-size:2em;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" data-item="1">
+		<div>
+			<h4>Lorem.</h4>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, repudiandae!</p>
+		</div>
+	</div>
+</body>
+</html>

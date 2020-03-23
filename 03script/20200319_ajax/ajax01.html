@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		$(function(){
+			$.ajax({
+				url:"book.xml",
+				dataType:"xml",
+				success:function(data){
+					$(data).find("book").each(function(){
+						var txt = "";
+						var title = $("title",this).text();
+						var author = $("author",this).text();
+						var bookimg = $("bookimg",this).text();
+						var href = $("href",this).text();
+						var price = $("price",this).text();
+
+						txt += "<li>";
+						txt += "<a href ='" + href + "'> <img src =' img/"  + bookimg + "'></a>"
+						txt += "<div class='hover'></div>" 
+						txt += "<div class='txt'>" + title + "<span>" + price + "</span></div>";
+						txt += "</li>";
+						
+
+
+						//var txt = "<li>" + title + "," + author + "," + "<img src='img/" + bookimg + "'>" + price + "</li>";
+
+						$(".yu").append(txt);
+					});
+				}
+			});//ajax end
+		});//function end
+	</script>
+	
+	<style>
+		*{list-style:none;}
+		span{display: block;}
+		.wrap{width: 1100px; margin:0 auto; background-color: #eee;	 }
+		.clearfix:after{content:"";display: block;clear: both;}
+		.yu{width: 100%; margin:0 auto;}
+		.yu li{ width: 150px; background-color:black; overflow:hidden; float:left; position:relative; margin:10px; cursor:pointer;	}
+		.yu li img{width: 100%; height: 200px; transition:0.3s; }
+		.yu li:hover img{transform:scale(1.2);}
+		.txt{width: 100%; color:white; text-align:center; display:inline-block; position:absolute; top:-50%; left:50%; transform:translate(-50%,-50%); opacity:0; 
+		transition:0.3s; font-weight:bold;}
+		.hover{position:absolute; top: 0; left: 0; width: 100%; height: 100%; background-color:black; opacity:0; transition:0.3s;}
+		.yu li:hover .hover{opacity:0.4;}
+		.yu li:hover .txt{opacity:1; top:50%; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="yu clearfix">
+			
+		</ul>
+		<ul class="yu clearfix">
+			
+		</ul>
+		<ul class="yu clearfix">
+			
+		</ul>
+		<ul class="yu clearfix">
+			
+		</ul>
+		<ul class="yu clearfix">
+			
+		</ul>
+	</div>
+
+
+
+
+</body>
+</html>

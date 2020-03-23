@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		$(function(){
+			$.ajax({
+				url:"book.xml",
+				dataType:"xml",
+				success:function(data){
+					$(data).find("book").each(function(){
+						var title = $("title",this).text();
+						var author = $("author",this).text();
+						var bookimg = $("bookimg",this).text();
+						var price = $("price",this).text();
+						var txt = "<li>" + title + "," author + "," + bookimg + "," + price + "</li>";
+						$(".yu").append(txt)
+					});
+				}
+			});//ajax end
+		});//function end
+	</script>
+	<style>
+		.d{font}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="yu">
+			
+		</ul>
+	</div>
+
+
+
+</body>
+</html>

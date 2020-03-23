@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var han = ["서울","경기","인천"];
+			var dLength = han.length;
+			var text="";
+
+
+			for(var i=0;i<dLength;i++){
+				 text +="<li>"+han[i]+"</li>";
+			}
+
+			console.log(text);
+			$(".han").append(text);
+		});
+		
+	</script>
+	<style>
+		li{list-style:none}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="han"></ul>
+	</div>
+</body>
+</html>

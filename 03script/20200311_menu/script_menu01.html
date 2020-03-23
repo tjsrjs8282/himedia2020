@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>menu</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<style>
+		#menu{width: 1000px;margin: auto}
+		#menu>ul{width: 100%;}
+		#menu>ul>li{
+			float: left;width: 20%;line-height:40px;
+			border-right: 1px solid #000;position: relative;
+		}
+		#menu>ul>li:first-child{border-left: 1px solid #000;}
+		#menu>ul>li:hover{background-color: #eee;}
+		#menu>ul>li>a{display: block;text-align: center;}
+		/*.sub{display: none;}*/
+		#menu ul.sub{
+			position: absolute;width: 100%;background-color:skyblue;
+		}
+		#menu ul.sub>li{width: 100%;}
+		#menu ul.sub>li:hover{background-color: #aaa;}
+		#menu ul.sub>li>a{display: block;text-align: center;}
+	</style>
+	<script>
+		$(function(){
+			// css
+			// $("ul.sub").css("display","none");
+			// $("#menu>ul>li").mouseover(function(){
+			// 	var i = $(this).index();
+			// 	// $("#menu>ul>li").eq(i).find("ul.sub").css("display","block");
+			// 	$("#menu>ul>li:eq("+i+")").find("ul.sub").css("display","block");
+			// }).mouseout(function(){
+			// 	$("ul.sub").css("display","none");
+			// });
+
+			//hide()/show()
+			// $("ul.sub").hide();
+			// $("#menu>ul>li").mouseover(function(){
+			// 	var i = $(this).index();
+			// 	$("#menu>ul>li").eq(i).find("ul.sub").show();
+			// }).mouseout(function(){
+			// 	$("ul.sub").hide();
+			// });
+
+			//slideDown()/slideUp()
+			// $("ul.sub").hide();
+			// $("#menu>ul>li").mouseenter(function(){
+			// 	var i = $(this).index();
+			// 	$("#menu>ul>li").eq(i).find("ul.sub").slideDown();
+			// }).mouseleave(function(){
+			// 	$("ul.sub").hide();
+			// });
+
+			//hover()
+			//$("션택자").hover(function(){},fucntion(){});
+			$("ul.sub").hide();
+			$("#menu>ul>li").hover(function(){
+				var i = $(this).index();
+				$("#menu>ul").eq(i).find("ul.sub").stop().fadeIn(100);
+			},function(){
+				$("ul.sub").hide();
+			});
+
+
+		});
+	</script>
+</head>
+<body>
+	<!-- nav#menu>ul>li*5>a[#]>{menu$}^ul.sub>li*5>a[#]>{smenu$} -->
+	<nav id="menu">
+		<ul class="clearfix">
+			<li>
+				<a href="#">menu1</a>
+				<ul class="sub">
+					<li><a href="#">smenu1</a></li>
+					<li><a href="#">smenu2</a></li>
+					<li><a href="#">smenu3</a></li>
+					<li><a href="#">smenu4</a></li>
+					<li><a href="#">smenu5</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">menu2</a>
+				<ul class="sub">
+					<li><a href="#">smenu1</a></li>
+					<li><a href="#">smenu2</a></li>
+					<li><a href="#">smenu3</a></li>
+					<li><a href="#">smenu4</a></li>
+					<li><a href="#">smenu5</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">menu3</a>
+				<ul class="sub">
+					<li><a href="#">smenu1</a></li>
+					<li><a href="#">smenu2</a></li>
+					<li><a href="#">smenu3</a></li>
+					<li><a href="#">smenu4</a></li>
+					<li><a href="#">smenu5</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">menu4</a>
+				<ul class="sub">
+					<li><a href="#">smenu1</a></li>
+					<li><a href="#">smenu2</a></li>
+					<li><a href="#">smenu3</a></li>
+					<li><a href="#">smenu4</a></li>
+					<li><a href="#">smenu5</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">menu5</a>
+				<ul class="sub">
+					<li><a href="#">smenu1</a></li>
+					<li><a href="#">smenu2</a></li>
+					<li><a href="#">smenu3</a></li>
+					<li><a href="#">smenu4</a></li>
+					<li><a href="#">smenu5</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	
+</body>
+</html>

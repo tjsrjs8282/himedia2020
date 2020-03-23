@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book>
+		<title>채식주의자</title>
+		<author>한강</author>
+		<img>01.jpg</img>
+		<price>12000</price>
+	</book>
+	<book>
+		<title>삶의 지혜</title>
+		<author>이호재</author>
+		<img>02.jpg</img>
+		<price>12000</price>
+	</book>
+	<book>
+		<title>이게 정말 마음일까?</title>
+		<author>요시타케 신스케</author>
+		<img>03.jpg</img>
+		<price>12000</price>
+	</book>
+	
+</books>
+
