@@ -3,20 +3,23 @@
 		{
 			"title":"타인의 해석",
 			"author":"말콤 글래드웰",
-			"boogimg":"01.jpg",
-			"price":"18,000"
-		}
+			"bookimg":"01.jpg",
+			"price":"20,000",
+			"href":"https://www.aladin.co.kr/weeklyeditorialmeeting/detail.aspx?wemid=1122&isbn=8934985747&start=we#divNavigationArea"
+		},
 		{
 			"title":"이상한 수학책",
-			"author":"김성훈",
-			"boogimg":"02.jpg",
-			"price":"18,000"
-		}
+			"author":"벤 올린",
+			"bookimg":"02.jpg",
+			"price":"20,000",
+			"href":"https://www.aladin.co.kr/weeklyeditorialmeeting/detail.aspx?wemid=1122"
+		},
 		{
 			"title":"배심원단",
-			"author":"한정아",
-			"boogimg":"03.jpg",
-			"price":"20,000"
+			"author":"마이클 코널리",
+			"bookimg":"01.jpg",
+			"price":"20,000",
+			"href":"https://www.aladin.co.kr/weeklyeditorialmeeting/detail.aspx?wemid=1122"
 		}
 	]
 }

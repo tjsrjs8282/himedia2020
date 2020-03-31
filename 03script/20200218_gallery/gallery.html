@@ -6,6 +6,40 @@
 	<title>gallery</title>
 	<link rel="stylesheet" href="../../css/reset.css">
 	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<script>
+		// $(document).ready(function(){});
+		$(function(){
+			$(".thumb").click(function(){
+				var i = $(this).index();
+				console.log(i);
+				$("#image > p").hide().eq(i).show();
+			});
+			var current = 0;
+			$(".right").click(function(){
+				if(current<3){
+					current++; //current = current + 1;
+					if(current == 3){current=0;}
+				}
+				hMove();
+
+			});
+			$(".left").click(function(){
+				if(current>-1){
+				current--;
+					if(current== -1){current=2;}
+				}
+				hMove();
+			});
+
+			function hMove(){
+				console.log(current);
+				var num = current * 760 * -1;
+				// $(".container>ul").css("left",num);
+				$(".container>ul").stop().animate({left:num},300);
+			}
+
+		});
+	</script>
 	<style>
 		#gallery{width: 824px;height: 595px;margin:20px auto;background-color: #ccc;}
 		#image{width: 760px;height: 470px;margin: 0 auto;margin-bottom:20px;}
@@ -16,7 +50,7 @@
 		#thumbnail div.left{width: 33px;}
 
 		#thumbnail .container{width: 760px;height: 95px;position: relative;overflow: hidden;}
-		#thumbnail .container ul{width:2280px;position: absolute;left:-760px;}
+		#thumbnail .container ul{width:2280px;position: absolute;}
 		#thumbnail .container ul li{float: left;width: 120px;height: 95px;margin-left: 8px;}
 
 		.ml0{margin-left: 0 !important;}

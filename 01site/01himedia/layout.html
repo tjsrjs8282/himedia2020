@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 	<meta charset="UTF-8">
+	<title>layout</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		header#main_header{_background-color:skyblue;}
+		header#main_header>div.main_util{border-bottom: 1px solid #ddd;}
+		header#main_header>div.main_util>nav.util_menu{width: 980px;margin: 0 auto;
+		}
+		header#main_header>div.main_util>nav.util_menu>div.menu{float: right;background-color: #f00;width:300px;}
+		header#main_header>div.main_middle{width: 980px;margin: 0 auto;position: relative;padding-top:10px;padding-bottom:10px;}
+		header#main_header>div.main_middle>h1{margin:0 auto;width: 200px;background-color: #0ff;text-align: center;}
+		header#main_header>div.main_middle>div.toggle_menu{width:48px;height: 48px;position: absolute;right:0;background-color: #0ff;top:10px;}
+		header#main_header>div.main_bottom{background-color: #00f;}
+		header#main_header>div.main_bottom>nav.main_gnb{width: 980px;margin: 0 auto;line-height:40px;text-align: center;}
+
+		div.visual_wrap{background-color: #ff0;}
+		div.visual_wrap>div.visual{width: 980px;margin: 0 auto;position: relative;height:300px;background-color: #0ff;overflow: hidden;}
+		div.visual_wrap>div.visual>div.visual_text{width:300px;height: 200px;position: absolute;top:40px;background-color: #f0f;}
+		div.visual_wrap>div.visual>div.visual_img{
+			width:200px;height: 400px;position: absolute;top:40px;right:0;background-color: #f0f;}
+
+		
+
+	</style>
+</head>
+<body>
+	<header id="main_header"> <!-- w 100% -->
+		<div class="main_util"> <!-- w100% bottom 1px line -->
+			<nav class="util_menu clearfix"> <!-- w980 m0auto -->
+				<div class="menu">util_menu</div>
+			</nav>
+		</div>
+		<div class="main_middle">
+			<h1>하이미디어</h1>
+			<div class="toggle_menu">1</div>
+		</div>
+		<div class="main_bottom"> <!-- w100% -->
+			<nav class="main_gnb"><!--  w980 m0 auto -->
+				menu
+			</nav>	
+		</div>
+	</header>
+	<div class="visual_wrap"> 
+		<div class="visual">	<!-- w980px -->
+				<div class="visual_text">text</div>
+				<div class="visual_img">img</div>
+				
+		</div>
+	</div>
+</body>
+</html>

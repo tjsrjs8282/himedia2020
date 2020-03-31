@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>tabs</title>
 
-	<link rel="stylesheet" href="../../css/reset.css">
-	<link rel="stylesheet" href="css/colorbox.css">
+	<link rel="stylesheet" href="../../../css/reset.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<style>
 		.contentWrap{width: 1000px;margin: auto;}
 		.contentWrap li{
@@ -18,25 +18,33 @@
 		.contentWrap .contentTxt div{padding:30px;display: none;}
 		.contentWrap .contentTxt div:first-child{display: block;}
 	</style>
-	<script src="../../js/jquery-3.1.1.min.js"></script>
-	<script src="js/jquery.colorbox-min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$(".contentWrap > ul > li").click(function(){
-				var liNum = $(this).index();
-				console.log(liNum);
-				$(".contentWrap>ul>li").removeClass();
-				 $(this).addClass("active");
-				//$(".contentWrap>ul>li").eq(liNum).addClass("active");
-				$(".contentTxt>div").hide();
-				// $(".contentTxt>div").eq(liNum).show();
-				$(".contentTxt>div").eq(liNum).fadeIn();
+			var frmUrl = location.href;
+			var cutHtml = frmUrl.indexOf("=");
+      var varCheck = frmUrl.substring(cutHtml+1);
+      console.log(varCheck);
+      if( cutHtml > 0 ){
+            view(varCheck);
+         }else{
+            view(0)
+         }
 
-			});
+       function view(menu){
+               $(".contentWrap>ul>li").removeClass("active").eq(menu).addClass("active");
+               $(".contentTxt>div").hide().eq(menu).show();
+         }
+
+
+			 $(".contentWrap>ul>li").click(function(){
+            var menu = $(this).index();
+            view(menu);
+         });
 		});
 	</script>
 </head>
 <body>
+	<a href="index.html">홈으로</a>
 	<div class="contentWrap">
 		<ul class="clearfix">
 			<li class="active">menu1</li>

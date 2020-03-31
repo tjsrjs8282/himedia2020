@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<title>문서 제목</title>
+	
+</head>
+<body>
+	<p class="han1"></p>
+	<p class="han2"></p>
+	<p id="counter1"></p>
+<p id="counter2"></p>
+<p id="counter3"></p>
+
+
+<script>
+		var snum1 = setTimeout(function(){
+				var num1 = setInterval(cnum1,50);
+			var count1=0;
+
+			function cnum1(){
+				if(count1<1000){
+					count1 = count1+10;
+				}
+					$(".han1").text(count1);
+			}
+		},1000);
+
+		var snum2 = setTimeout(function(){
+				var num2 = setInterval(cnum2,50);
+			var count2=0;
+
+			function cnum2(){
+				if(count2<1000){
+					count2 = count2+10;
+				}
+					$(".han2").text(count2);
+			}
+		},2000);
+
+		
+		
+	
+
+
+
+// 		function numberCounter(target_frame, target_number) {
+//     this.count = 0; this.diff = 0;
+//     this.target_count = parseInt(target_number);
+//     this.target_frame = document.getElementById(target_frame);
+//     this.timer = null;
+//     this.counter();
+// };
+//     numberCounter.prototype.counter = function() {
+//         var self = this;
+//         this.diff = this.target_count - this.count;
+    
+//         if(this.diff > 0) {
+//             self.count += Math.ceil(this.diff / 3);
+//         }
+    
+//         this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    
+//         if(this.count < this.target_count) {
+//             this.timer = setTimeout(function() { self.counter(); }, 20);
+//         } else {
+//             clearTimeout(this.timer);
+//         }
+//     };
+
+// new numberCounter("counter3", 99999);
+// new numberCounter("counter2", 1123456);
+// new numberCounter("counter1", 15);
+	</script>
+</body>
+</html>

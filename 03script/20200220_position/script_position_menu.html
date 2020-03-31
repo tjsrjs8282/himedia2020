@@ -70,15 +70,12 @@
 
 
 				// 3st each
-				section.each(function(index){
-					// var i = $(this).index()-1;
-					// console.log(i);
-					var i = index;
+				section.each(function(){
+					var i = $(this).index()-1;
 					console.log(i);
 
-
-					if(section.eq(index).offset().top <=scrollY){
-						menu.removeClass("on").eq(index).addClass("on");
+					if($(this).offset().top <=scrollY){
+						menu.removeClass("on").eq(i).addClass("on");
 					}
 
 				});
