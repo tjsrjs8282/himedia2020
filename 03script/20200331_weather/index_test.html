@@ -4,8 +4,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>날씨</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<style>
+		*{margin: 0;padding: 0;box-sizing:border-box;}
+		li{list-style:none}
+		a:visited,a:link{text-decoration:none;color:black;}
+		.clearfix:after{content:"";display: block;clear: both;}
+	</style>
 </head>
 <body>
+	<div id="time-result"></div>
 	<div id="weather_info">
 	  	<h1 class="city"></h1>
 
@@ -24,6 +33,14 @@
 
 	<script>
 		
+		var d = new Date();
+	    var currentDate = d.getFullYear() + "년 " + ( d.getMonth() + 1 ) + "월 " + d.getDate() + "일";
+	    var currentTime = d.getHours() + "시 " + d.getMinutes() + "분 " + d.getSeconds() + "초";
+	    var result = document.getElementById("time-result");
+	        result.innerHTML = "오늘 날짜는 " + currentDate + " 입니다.";
+
+
+
 		// API 요청 URL 변수
 		var url = 'http://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=부여받은아이디값';
 

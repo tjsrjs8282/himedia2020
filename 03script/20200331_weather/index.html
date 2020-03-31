@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>오늘의 날씨</title>
+
+	<style>
+		*{margin: 0;padding: 0;box-sizing:border-box;}
+		li{list-style:none}
+		a:visited,a:link{text-decoration:none;color:black;}
+		.clearfix:after{content:"";display: block;clear: both;}
+
+
+		#weather_info{width: 360px; margin:0 auto; background-color: skyblue; border: 1px solid black;
+			position: relative; height: 640px; background: url("img/weatherBack.png");}
+		h1{text-align: center;}
+		p.w_id,div.icon,p.temp,div.tempWrap,#cityWrap,.location{position:absolute;}
+		p.w_id{bottom: 60px; right:70px; color: #fff; font-size:1.2em;}
+
+		.location{width: 30px; height: 30px; top: 40px; left: 50%; transform: translateX(-50%);}
+		.location img{width: 100%;}
+		
+		#cityWrap{top:60px; left: 50%; transform: translateX(-50%); color: #fff; text-align: center;}
+
+		.city{color: #fff; font-size: 2.5em; text-transform: uppercase;}
+		div.icon{bottom: 85px; right: 45px;}
+		p.temp{bottom: 60px; left:100px; font-size: 5em; color: #fff; transform: translateX(-50%);}
+		div.tempWrap{bottom: 30px; right: 20px; color: #fff;font-size: 1.3em;}		
+		div.tempWrap p{display: inline-block;}
+	</style>
+</head>
+<body>
+	
+	<div id="weather_info">
+		
+		
+		<div class="location">
+			<img src="img/location.png" alt="">
+		</div>
+		<div id="cityWrap">
+			<h1 class="city">seoul</h1>
+			<div id="time-date"></div>
+			<div id="time"></div>
+		</div>
+		<section>
+			<p class="w_id"></p>
+			<div class="icon"></div>
+			<p class="temp"></p>
+			<div class="tempWrap">
+				<p class="temp_max"></p>
+				<p class="temp_min"></p>
+			</div>
+		</section>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	function getInputDayLabel() {
+    
+    var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+    
+    var today = new Date('2020-03-31').getDay();
+    var todayLabel = week[today];
+    
+    return todayLabel;
+	}
+
+
+		var d = new Date();
+	    var currentDate = d.getFullYear() + ". " + ( d.getMonth() + 1 ) + " / " + d.getDate() + "th";
+	    var currentTime = d.getHours() + " : " + d.getMinutes()
+
+	    var resultTime = document.getElementById("time");
+	    	result.innerHTML =currentTime;
+
+	    var resultDate = document.getElementById("time-date");
+	        result.innerHTML =currentDate;
+
+
+	var url = 'http://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=9174a3dd9f480af2752aa0eb0c28ab53';
+
+	$.getJSON(url,function(data){
+		// 날씨 데이터 객체
+			var sys = data.sys; 			// 국가명, 일출/일몰			
+			var city = data.name; 			// 도시명
+
+
+			var weather = data.weather; 	// 날씨 객체
+			var wmain = weather[0].main; 	// 구름 상태(Cloudiness)
+			var w_id = weather[0].id; 		// 날씨상태 id 코드
+			var icon = weather[0].icon;		// 날씨 아이콘 정보
+
+			var country = sys.country;  	// 국가명
+
+			var main = data.main;  			// 온도 기압 관련 객체
+			var temp = main.temp; 			// 현재 온도
+			var temp_min = main.temp_min 	// 최저 온도
+			var temp_max = main.temp_max 	// 최고 온도
+
+			var icon_url = 'img/' + icon + '.png';
+
+			$(".city").html(city);
+			$(".icon").html("<img src='" + icon_url + "'>");
+			$(".w_id").html(wmain);
+			$(".temp").html(parseInt(temp - 273.15)+"&deg");
+			$(".temp_max").html(parseInt(temp_max - 273.15)+"&deg Max");
+			$(".temp_min").html(parseInt(temp_min - 273.15)+"&deg Min");
+	});
+</script>
+
+</body>
+</html>
